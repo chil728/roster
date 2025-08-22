@@ -1,0 +1,486 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* font-family: 'Convergence', sans-serif; */
+    font-family: Arial, sans-serif;
+}
+
+body {
+    min-height: 100dvh;
+    color: #18191A;
+}
+
+a {
+    text-decoration: none;
+    color: #18191A;
+}
+
+.navbar {
+    width: 100%;
+    position: fixed;
+    height: 60px;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FFF;
+    z-index: 999;
+}
+
+.nav-logo {
+    width: fit-content;
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-logo a {
+    font-size: 30px;
+}
+
+.nav-links {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 20px;
+    list-style: none;
+}
+
+main {
+    position: relative;
+    top: 60px;
+    min-height: calc(100dvh - 60px);
+    /* background-color: rgba(0, 0, 0, 0.02); */
+}
+
+/* Sign Up / Login */
+#login,
+#register,
+#verify {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-container {
+    width: 500px;
+    max-width: 100%;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 20px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#login form,
+#register form,
+#verify form {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.form-group {
+    width: 100%;
+    margin-bottom: 15px;
+    position: relative;
+    line-height: 1rem;
+}
+
+.form-input {
+    outline: none;
+    min-width: 150px;
+    min-height: 40px;
+    width: 100%;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    padding: 8px 10px;
+    border-radius: 10px;
+    font-size: 1rem;
+    background: transparent;
+    transition: all 0.3s ease;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.form-input:hover,
+.form-input:focus {
+    border-color: #18191A;
+}
+
+.form-input::placeholder {
+    opacity: 0;
+}
+
+.form-label {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 10px;
+    color: rgba(0, 0, 0, 0.5);
+    background-color: #FFF;
+    padding: 0 5px;
+    margin: 0 10px;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.form-input:focus~.form-label,
+.form-input:not(:placeholder-shown).form-input:not(:focus)~.form-label {
+    top: 0;
+    left: 0;
+    font-size: 0.9rem;
+    /* transform: translate(-10px, -8px) scale(0.88); */
+}
+
+.form-group i {
+    position: absolute;
+    top: 11px;
+    right: 10px;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+form button {
+    width: 150px;
+    background: transparent;
+    outline: none;
+    border: 2px solid #0f6ebf;
+    border-radius: 10px;
+    color: #18191A;
+    padding: 8px 12px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+form button:hover {
+    background-color: #0f6ebf;
+    color: #FFF;
+}
+
+.options {
+    text-align: center;
+}
+
+.options a {
+    color: rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+}
+
+.options a:hover {
+    text-decoration: underline;
+    color: #18191A;
+}
+
+#view-rosters {
+    padding: 10px;
+}
+
+#view-rosters .cycle {
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+#view-rosters .week-title {
+    width: 100%;
+    height: 30px;
+    display: grid;
+    grid-template-columns: repeat(7, 14%);
+    grid-column-gap: 0.28%;
+    background-color: #c8c6cf;
+    position: sticky;
+    top: 60px;
+    margin: 10px 0;
+    z-index: 998;
+}
+
+.week-title .week {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    z-index: 999;
+}
+
+#view-rosters .rosters-container {
+    display: grid;
+    grid-template-columns: repeat(7, 14.285%);
+    margin-bottom: 20px;
+}
+
+.roster-card {
+    min-height: fit-content;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.roster-card div {
+    text-align: center;
+}
+
+.roster-card .roster-date {
+    background-color: #5caff7;
+    color: #FFF;
+    font-size: 0.8rem;
+}
+
+.roster-card .roster-date.today {
+    background-color: #0f6ebf;
+}
+
+.roster-card .roster-type {
+    min-height: 36px;
+    font-size: 0.8rem;
+    background-color: #FFF;
+    cursor: default;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.roster-card .roster-type a {
+    color: #18191A;
+}
+
+.roster-card .roster-remark {
+    min-height: 20px;
+    background-color: rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFF;
+}
+
+.pages {
+    width: 100%;
+    position: sticky;
+    top: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    background-color: #FFF;
+    padding: 10px 0;
+    z-index: 998;
+}
+
+.pages button:disabled {
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.2);
+    color: #FFF;
+}
+
+#home .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+#home .modal-content {
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+#home .modal-content .close {
+    float: right;
+    font-size: 24px;
+    cursor: pointer;
+    display: flex;
+    justify-content: right;
+}
+
+#home .modal-content .close i {
+    padding: 5px 6px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+#home .modal-content .close i:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+#home .modal-content h2 {
+    margin: 10px 0;
+}
+
+#home .roster-remark {
+    cursor: pointer;
+}
+
+/* Add / Edit Roster */
+
+#add-roster,
+#edit-roster {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 15px;
+    gap: 40px;
+}
+
+#add-roster .form-container,
+#edit-roster .form-container {
+    max-width: 500px;
+    width: 100%;
+}
+
+#add-roster form,
+#edit-roster form {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#add-roster .form-group {
+    margin-bottom: 30px;
+}
+
+#add-roster .rosters {
+    max-width: 100%;
+    overflow-x: scroll;
+    margin-bottom: 20px;
+}
+
+#edit-roster .form-input,
+#edit-roster input::-webkit-date-and-time-value,
+#edit-roster select {
+    text-align: left;
+}
+
+#edit-roster input::-webkit-date-and-time-value {
+    pointer-events: none;
+}
+
+.form-message {
+    width: 100%;
+    padding: 10px;
+    text-align: left;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.form-message.success {
+    color: #217a23;
+    background-color: #cef5d3;
+}
+
+.form-message.error {
+    color: #f54a20;
+    background-color: #fad2c8;
+}
+
+/* Add / Edit Type */
+
+#add-type,
+#edit-type {
+    max-width: 1000px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+#add-type .form-container,
+#edit-type .form-container {
+    box-shadow: none;
+    border-radius: none;
+    padding: 10px 0;
+}
+
+#add-type .form-container h1,
+#edit-type .form-container h1 {
+    text-align: left;
+}
+
+@media screen and (max-width: 768px) {
+
+    .nav-links {
+        flex-direction: column;
+        align-items: baseline;
+        justify-content: left;
+        gap: 20px;
+        padding: 40px;
+        padding-right: 20px;
+        width: 60dvw;
+        height: calc(100dvh - 60px);
+        background-color: #FFF;
+        box-shadow: 0px 30px 30px 0px rgba(0, 0, 0, 0.1);
+        position: absolute;
+        top: 60px;
+        right: -1000%;
+        transition: all 0.3s ease-out;
+    }
+
+    .nav-links li {
+        display: flex;
+        gap: 10px;
+        width: 100%;
+        font-size: 1rem;
+        padding: 20px 0;
+        border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+        z-index: 999;
+    }
+
+    .nav-link {
+        width: 100%;
+    }
+
+    .nav-links.active {
+        height: calc(100dvh - 60px);
+        transition: all 0.3s ease-in;
+        right: 0;
+    }
+
+    .toggle-menu {
+        position: relative;
+        width: 25px;
+        height: 24px;
+    }
+
+    .toggle-menu .bar {
+        display: block;
+        width: 25px;
+        height: 4px;
+        margin-bottom: 4px;
+        color: #18191A;
+        background-color: #18191A;
+        border-radius: 1px;
+        transition: all 0.3s ease-out;
+    }
+
+    .toggle-menu.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .toggle-menu.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .toggle-menu.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}
